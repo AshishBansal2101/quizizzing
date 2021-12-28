@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Free SSB Guide</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <%- include('partials/navbar'); -%>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <%- include('partials/sidebar'); -%>
+                <div class="container-fluid">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0">Dashboard</h3><a
+                            class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i
+                                class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xl-3 mb-4">
+                           <a href="/oir/home" target="_blank">
+                            <div id="firstBtn" class="card shadow border-left-primary py-2" type="button">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-primary font-weight-bold text-md mb-1">
+                                                <span>OIR Test(monthly)</span>
+                                            </div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span>SSB</span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                           </a>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <a href="/ppdt/home" target="_blank">
+                            <div class="card shadow border-left-success py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-success font-weight-bold text-md mb-1">
+                                                <span>PPDT Test(Monthly)</span>
+                                            </div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span>SSB</span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-7 col-xl-8">
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary font-weight-bold m-0">Track Your Progress</h6>
+                                   
+                                </div>
+                                <div class="card-body">
+                                    <h2 style="display:none;"><%= firstHighScore %></h2>
+                                    <div class="chart-area" id="lineChart"><canvas
+                                            data-bs-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;OIR&quot;,&quot;PPDT&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Score&quot;,&quot;fill&quot;:true,&quot;data&quot;:[&quot;<%= firstHighScore %>&quot;,&quot;<%= secondHighScore %>&quot;,&quot;25&quot;,&quot;40&quot;],&quot;backgroundColor&quot;:&quot;rgba(78, 115, 223, 0.05)&quot;,&quot;borderColor&quot;:&quot;rgba(78, 115, 223, 1)&quot;}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;]},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}]}}}"></canvas>
+                                    </div>
+                                    <div id="firstUserLineText" style="display: none;">
+                                        <h3 style="text-align:center;">
+                                        Sorry!!!
+                                        <span style="text-transform: capitalize;"><%= username %></span> No Progress to Show</h3>
+                                        <h4 style="text-align:center;color:red">No Quiz Attempted!!!</h4>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-xl-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary font-weight-bold m-0">Quiz Attempted</h6>
+                                  
+                                </div>
+                                <div class="card-body">
+                                    <div id="typeOfUser" style="display:none;"><%= typeOfUser %></div>
+                                    <div class="chart-area" id="pieChart"><canvas
+                                            data-bs-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;OIR&quot;,&quot;PPDT&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;<%= firstCount %>&quot;,&quot;<%= secondCount %>&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{}}}"></canvas>
+                                    </div>
+                                     <!-- Text to show when it is first time User-->
+                                    <div id="firstUserText" style="display:none;">
+                                         <h5 style="text-align:center">OOPs!!! <span style="text-transform: capitalize;"><%= username %></span> No record to show.</h5>
+                                              
+                                    </div>
+                                    <div class="text-center small mt-4"><span class="mr-2"><i
+                                                class="fas fa-circle text-primary"></i>&nbsp;OIR</span><span
+                                            class="mr-2"><i
+                                                class="fas fa-circle text-success"></i>&nbsp;PPDT</span>
+                                    </div>
+                              
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div id="userEmail" style="display:none;"><%= email %></div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © FSB 2021</span></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="js/landing.js"></script>
+</body>
+
+</html>

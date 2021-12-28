@@ -1,0 +1,32 @@
+.main{
+  border:2px solid black;
+  padding:5px;
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+}
+.main{
+  padding:10px;
+}
+.form-box{
+  padding:20px;
+  
+}
+.card{
+  margin:5px 20px;
+  border:2px solid salmon !important;
+  font-family: monospace;
+  padding:10px;
+}
+.card-heading{
+  font-size:2rem;
+}
+input{
+  width:320px;
+  padding:6px;
+}
+#submit{
+  display:block;
+  width:300px;
+  margin-left:auto;
+  
+}

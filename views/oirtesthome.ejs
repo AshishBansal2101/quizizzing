@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>OIRTEST|HOME - FSB</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="/css/oirtesthome.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <%- include('partials/navbar'); -%>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+              <%- include('partials/sidebar'); -%>
+                <!-- Main Section Starts -->
+                <div class="container-fluid">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h2 class="text-dark mb-0">OIR TEST</h2><a
+                            class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i
+                                class="fas fa-download fa-sm text-white-50"></i>&nbsp;Read Intructions</a>
+
+                    </div>
+                    <!-- Graph Section -->
+                    <div class="graph-container shadow">
+                        <div class="row">
+                            <div class="col-lg-12 col-xl-12">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h6 class="text-primary font-weight-bold m-0">Track Your Progress</h6>
+
+                                    </div>
+                                    <div class="card-body">
+                                        <h2 style="display:none;" id="text"><%= oneHighScore %></h2>
+                                        <script>
+                                            console.log(document.getElementById("text"))
+                                        </script>
+                                        <div class="chart-area" id="lineChart"><canvas
+                                                data-bs-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;PONE&quot;,&quot;PTWO&quot;,&quot;PTHREE&quot;,&quot;PFOUR&quot;,&quot;PFIVE&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Score&quot;,&quot;fill&quot;:true,&quot;data&quot;:[&quot;<%= oneHighScore %>&quot;,&quot;<%= twoHighScore %>&quot;,&quot;<%= threeHighScore %>&quot;,&quot;<%= fourHighScore %>&quot;,&quot;<%= fiveHighScore %>&quot;,&quot;40&quot;,&quot;40&quot;,&quot;10&quot;],&quot;backgroundColor&quot;:&quot;rgba(78, 115, 223, 0.05)&quot;,&quot;borderColor&quot;:&quot;rgba(78, 115, 223, 1)&quot;}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;]},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}]}}}"></canvas>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Boxes for Quiz -->
+                        <h3 class="my-5" style="text-align:center;font-size:2.4rem;">PRACTICE QUIZS</h3>
+                        <div class="choice-container">
+                            <div class="row1">
+                                <!-- First Box -->
+                                <div class="option-box shadow" id="one">
+                                    <div class="circle"><%= oneCount %></div>
+                                    <h3 class="text-danger">NEWBIE</h3>
+                                    <p class="text-primary my-3" style="font-size:1.6rem;font-weight:700;">
+                                        <%= oneStatus %></p>
+                                    <span style="color:green;font-size:1.8rem;"><i class="fa fa-star"
+                                            style="display:inline-block;"></i><i class="fa fa-star"></i></span>
+                                    <p class="text my-2">Your Score: <span
+                                            class="text-primary"><%= oneHighScore %></span></p>
+                                    <p class="text my-2">Total Score: <span class="text-primary">40</span></p>
+                                    <a href="/oir/oirtestone" target="_blank">
+                                        <button class="btn btn-primary shadow">Start Now</button>
+                                    </a>
+                                </div>
+
+                                <!-- Second Box-->
+                                <div class="option-box shadow" id="two">
+                                    <div class="circle"><%= twoCount %></div>
+                                    <h3 class="text-danger">BEGINNER</h3>
+                                    <p class="text-primary my-3" style="font-size:1.6rem;font-weight:700;">
+                                        <%= twoStatus %></p>
+                                    <span style="color:green;font-size:1.8rem;"><i class="fa fa-star"
+                                            style="display:inline-block;"></i><i class="fa fa-star"></i></span>
+                                    <p class="text my-2">Your Score: <span
+                                            class="text-primary"><%= twoHighScore %></span></p>
+                                    <p class="text my-2">Total Score: <span class="text-primary">40</span></p>
+                                    <a href="oirtesttwo" target="_blank">
+                                        <button class="btn btn-primary shadow">Start Now</button>
+                                    </a>
+                                </div>
+
+                                <!-- Third Box -->
+                                <div class="option-box shadow" id="three">
+                                    <div class="circle"><%= threeCount %></div>
+                                    <h3 class="text-danger">INTERMEDIATE</h3>
+                                    <p class="text-primary my-3" style="font-size:1.6rem;font-weight:700;">
+                                        <%= threeStatus %></p>
+                                    <span style="color:green;font-size:1.8rem;"><i class="fa fa-star"
+                                            style="display:inline-block;"></i><i class="fa fa-star"></i></span>
+                                    <p class="text my-2">Your Score: <span
+                                            class="text-primary"><%= threeHighScore %></span></p>
+                                    <p class="text my-2">Total Score: <span class="text-primary">40</span></p>
+                                    <a href="oirtestthree" target="_blank">
+                                        <button class="btn btn-primary shadow">Start Now</button>
+                                    </a>
+                                </div>
+
+                            </div>
+                            <!-- First Row Ends -->
+                            <div class="row2 my-5">
+                                <!-- Fourth Box Box -->
+                                <div class="option-box shadow" id="four">
+                                    <div class="circle"><%= fourCount %></div>
+                                    <h3 class="text-danger">ADVANCED</h3>
+                                    <p class="text-primary my-3" style="font-size:1.6rem;font-weight:700;">
+                                        <%= fourStatus %></p>
+                                    <span style="color:green;font-size:1.8rem;"><i class="fa fa-star"
+                                            style="display:inline-block;"></i><i class="fa fa-star"></i></span>
+                                    <p class="text my-2">Your Score: <span
+                                            class="text-primary"><%= fourHighScore %></span></p>
+                                    <p class="text my-2">Total Score: <span class="text-primary">40</span></p>
+                                    <a href="oirtestfour" target="_blank">
+                                        <button class="btn btn-primary shadow">Start Now</button>
+                                    </a>
+                                </div>
+
+                                <!-- Fifth Box-->
+                                <div class="option-box shadow" id="five">
+                                    <div class="circle"><%= fiveCount %></div>
+                                    <h3 class="text-danger">EXPERT</h3>
+                                    <p class="text-primary my-3" style="font-size:1.6rem;font-weight:700;">
+                                        <%= fiveStatus %></p>
+                                    <span style="color:green;font-size:1.8rem;"><i class="fa fa-star"
+                                            style="display:inline-block;"></i><i class="fa fa-star"></i></span>
+                                    <p class="text my-2">Your Score: <span
+                                            class="text-primary"><%= fiveHighScore %></span></p>
+                                    <p class="text my-2">Total Score: <span class="text-primary">40</span></p>
+                                    <a href="oirtestfive" target="_blank">
+                                        <button class="btn btn-primary shadow">Start Now</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Third Row For Final-->
+                            <h3 class="my-5" style="text-align:center;font-size:2.4rem;">FINAL QUIZ</h3>
+                            <div class="row3 my-2">
+                                <div class="final-box shadow">
+                                    <div class="circle"><%= finalCount %></div>
+                                    <h3 class="text-danger">FINAL</h3>
+                                    <p class="text-primary my-3" style="font-size:1.6rem;font-weight:700;">
+                                        <%= finalStatus %></p>
+                                    <span style="color:green;font-size:1.8rem;"><i class="fa fa-star"
+                                            style="display:inline-block;"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                                    <p class="text my-2">Your Score: <span
+                                            class="text-primary"><%= finalHighScore %></span></p>
+                                    <p class="text my-2">Total Score: <span class="text-primary">40</span></p>
+                                    <a href="oirtest" target="_blank">
+                                        <button class="btn btn-primary shadow">Start Now</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Choice Container Ends-->
+                    </div>
+
+                </div>
+                <footer class="bg-white sticky-footer">
+                    <div class="container my-auto">
+                        <div class="text-center my-auto copyright"><span>Copyright © FSB 2021</span></div>
+                    </div>
+                </footer>
+            </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+        </div>
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/assets/js/chart.min.js"></script>
+        <script src="/assets/js/bs-init.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+        <script src="/assets/js/theme.js"></script>
+        <script>
+            const username = document.getElementById("username").innerHTML;
+            console.log(username.split(" ")[0]);
+            const firstName = document.getElementById("first_name");
+            const lastName = document.getElementById("last_name");
+            firstName.value = username.split(" ")[0];
+            lastName.value = username.split(" ")[1];
+        </script>
+</body>
+
+</html>
